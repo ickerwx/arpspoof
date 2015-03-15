@@ -5,7 +5,9 @@ arpspoof.py is a small tool I wrote because I was annoyed with  my ARP spoofing 
 You will need scapy and Python 2, nothing else.
 
 ## Usage
-```$ python2 arpspoof.py -h
+
+```
+$ python2 arpspoof.py -h
 usage: arpspoof.py [-h] [-i INTERFACE] -t TARGETS -g GATEWAY
 
 Do ARP poisoning between a gatway and several targets
@@ -17,13 +19,16 @@ optional arguments:
   -t TARGETS, --targets TARGETS
                         comma-separated list of IP addresses
   -g GATEWAY, --gateway GATEWAY
-                        IP address of the gateway```
+                        IP address of the gateway
+```
 
 As you can see from the output above, the typical usage scenario is that you want to intercept data between one gateway and one or more targets. The -t and -g parameters are required, the -i parameter might be useful if you have multiple connected interfaces.
 
-```$ sudo python2 arpspoof.py -t 192.168.1.234 -g 192.168.1.1
+```
+$ sudo python2 arpspoof.py -t 192.168.1.234 -g 192.168.1.1
 Using interface wifi0 (60:67:20:42:fb:de)
-arpsoof#```
+arpspoof#
+```
 
 After starting, you will find yourself at a command prompt. At this time, the ARP poisoning is already going on in the background.
 
@@ -33,7 +38,8 @@ add <IP>: add IP address to target list
 del <IP>: remove IP address from target list
 list: print all current targets
 exit: stop poisoning and exit
-arpsoof#```
+arpsoof#
+```
 
 Typing help will bring up a list of commands.
 
@@ -55,7 +61,8 @@ ARP 192.168.1.234 is at 00:00:00:00:00:02
 ARP 192.168.1.1 is at 00:00:00:00:00:01
 ARP 192.168.1.234 is at 00:00:00:00:00:02
 Restored ARP caches
-$ ```
+$
+```
 
 After receiving the exit command, arpspoof.py will restore the ARP caches of the gateway and the targets by sending three correct ARP responses.
 
